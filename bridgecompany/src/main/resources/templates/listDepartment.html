@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Data of Departments</title>
+</head>
+<body>
+<div class="container-fluid">
+
+    <table class="table table-striped table-hover table-bordered text-center">
+        <thead class="table-dark">
+        <tr>
+            <th> Department Id</th>
+            <th>Department Name</th>
+            <th>head Of Department</th>
+            <th>Actions</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="dept:${departmentList}">
+            <td th:text="${dept.deptId}"></td>
+            <td th:text="${dept.DeptName}"></td>
+            <td th:text="${dept.headOfDept}"></td>
+
+            <td>
+                <a class="btn btn-danger btn-sm text-right"th:href="@{'/deleteDepartment/'+${dept.deptId}}">Delete</a>
+                <a class="btn btn-success btn-sm text-right" th:href="@{'/editDepartment/'+${dept.deptId}}">Edit</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+</html>
